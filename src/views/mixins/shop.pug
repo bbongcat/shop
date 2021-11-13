@@ -1,0 +1,13 @@
+mixin shop(product)
+    div
+        h4
+            a(href=`/product/${product.id}`)=product.productName
+        small category: #{product.category}
+        br
+        br
+        img(src=`${product.productImg}`, height="500px")
+        p=product.description
+        p #{product.price}원
+        p 남은 수량: #{product.quantity}개
+        small=product.uploadedAt
+        hr

@@ -1,0 +1,37 @@
+extends ../base
+
+block content
+    if errorMessage
+        span=errorMessage
+    form(method="POST", id="joinForm")
+        input(name="username", placeholder="아이디", type="text", required)
+        input(name="password", placeholder="패스워드", type="password", required, id="password")
+        input(name="password2", placeholder="패스워드 확인", type="password", required, id="password2")
+        span(id="passwordSpan")
+        input(name="email", placeholder="이메일", type="email", required)
+        input(name="name", placeholder="이름", type="text", required)
+        input(name="address", placeholder="주소", type="text", required)
+        input(name="phone", placeholder="전화번호", type="number", required)
+        input(type="submit", value="Join")
+    hr
+    div
+        span 이미 계정이 있으신가요? &nbsp;
+        a(href="/login") Login now &xrarr;
+
+    script.
+        const password1 = document.querySelector("#password"),
+            password2 = document.querySelector("#password2"),
+            joinForm = document.querySelector("#joinForm"),
+            span = document.querySelector("#passwordSpan");
+
+
+        function handlePassword(e) {
+            if (password1.value !== password2.value) {
+                span.innerText = "비밀번호가 일치하지 않습니다.";
+            } else {
+                span.innerText = "";
+            }
+        }
+
+        password2.addEventListener("change", handlePassword);
+

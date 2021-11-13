@@ -1,0 +1,18 @@
+extends ../base
+
+block content
+    h4 제품 정보 수정
+    form(method="POST")
+        input(name="productName", placeholder="제품명", type="text", required, value=product.productName)
+        input(name="description", placeholder="제품 설명", type="text", required, value=product.description)
+        input(name="price", placeholder="가격", type="number", required, value=product.price)
+        input(name="quantity", placeholder="수량", type="number", required, value=product.quantity)
+        label(for="category-select") Category:
+        select(name="category", id="category-select" multiple size="4")
+            option(value="top" selected) Top
+            option(value="bottom") Bottom
+            option(value="outer") Outer
+            option(value="shoes") Shoes
+            option(value="acc") Acc
+        input(name="productImg", placeholder="제품 이미지", type="text", value=product.productImg)
+        input(type="submit", value="Save")

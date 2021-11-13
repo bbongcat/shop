@@ -1,0 +1,29 @@
+extends ../base
+
+block content
+    div
+        p=product.description
+        small category: #{product.category}
+        p #{product.price}원
+        p 수량: #{product.quantity}개
+        img(src=product.productImg)
+        br
+        small=product.uploadedAt
+    if loggedIn
+        form(method="POST")
+            select(name="quantity", id="category-select" multiple size="4")
+                option(value=1 selected) 1
+                option(value=2) 2
+                option(value=3) 3
+                option(value=4) 4
+                option(value=5) 5
+                option(value=6) 6
+                option(value=7) 7
+                option(value=8) 8
+                option(value=9) 9
+                option(value=10) 10
+            input(type="submit", value="🛒")
+    hr
+    a(href=`${product.id}/edit`) Edit &xrarr;
+    br
+    a(href=`${product.id}/delete`) Delete &xrarr;

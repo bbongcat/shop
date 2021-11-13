@@ -1,0 +1,7 @@
+mixin cart(product)
+    div
+        input(type="checkbox")
+        h4=product.productName
+        p=product.price
+        p 남은 수량: #{product.quantity}
+        hr
